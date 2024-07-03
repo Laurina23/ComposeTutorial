@@ -41,6 +41,6 @@ The Android Activity Lifecycle represents the various states an activity can tra
 
 ## Preview of Logcat Window during the Calling of onStart() and onResume() Methods
 
-<img src="ss/ss_lifecycleMethods.png" alt="Logcat Window" width="900" height="200">
+<img src="ss/ss_applifecycleMethods.png" alt="Logcat Window" width="900" height="200">
 
 
