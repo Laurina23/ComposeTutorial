@@ -1,4 +1,4 @@
-# AndroidTutorial-Compose
+# ComposeTutorial
 
 The Greeting project demonstrates the use of Jetpack Compose for building Android UIs, focusing on text modifiers and activity lifecycle logging.
 
