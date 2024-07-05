@@ -1,17 +1,14 @@
 package com.example.greeting
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.greeting.ui.theme.GreetingTheme
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -19,71 +16,94 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-private const val TAG = "MainActivity"
-
+val DarkBlue = Color(0xFF0D47A1)
+val LightBlue = Color(0xFF42A5F5)
+val White = Color(0xFFFFFFFF)
+val LightGray = Color(0xFFF5F5F5)
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             GreetingTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    Greeting()
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(16.dp)
+                            .background(LightGray),
+                        verticalArrangement = Arrangement.spacedBy(16.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            text = "Hello Android!",
+                            style = TextStyle(
+                                color = DarkBlue,
+                                fontSize = 45.sp,
+                                fontWeight = FontWeight.Bold
+                            ),
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .fillMaxWidth()
+                                .background(White)
+                                .padding(16.dp)
+                        )
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(16.dp)
+                                .background(White)
+                                .padding(16.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                text = "Column and Row Layouts",
+                                style = TextStyle(
+                                    color = DarkBlue,
+                                    fontSize = 24.sp,
+                                    fontWeight = FontWeight.Medium
+                                )
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    text = "with Jetpack Compose",
+                                    style = TextStyle(
+                                        color = LightBlue,
+                                        fontSize = 24.sp,
+                                        fontWeight = FontWeight.Medium
+                                    )
+                                )
+                            }
+                        }
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(200.dp)
+                                .background(White),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.Center
+                            ) {
+                                Text(
+                                    text = " Box Layout",
+                                    style = TextStyle(
+                                        color = DarkBlue,
+                                        fontSize = 36.sp,
+                                        fontWeight = FontWeight.Medium
+                                    )
+                                )
+
+                            }
+                        }
+                    }
                 }
             }
         }
-        Log.d(TAG, "onCreate Called")
-    }
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, "onStart Called")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "onResume Called")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.d(TAG, "onRestart Called")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, "onPause Called")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(TAG, "onStop Called")
-    }
-
-}
-val Blue = Color(0xFF0047AB)
-val LightBlue = Color(0xFFADD8E6)
-val Periwinkle = Color(0xFFCCCCFF)
-@Composable
-fun Greeting(modifier: Modifier = Modifier) {
-    val gradientColors = listOf(Blue, LightBlue, Periwinkle)
-    Text(text = "Jetpack Compose",
-        style = TextStyle(
-            brush = Brush.linearGradient(
-                colors = gradientColors
-            )
-        ),
-        fontSize = 60.sp,
-        fontWeight = FontWeight.Normal,
-        modifier = modifier
-            .background(Color(0xFF121212))
-            .padding(28.dp)
-            .fillMaxWidth()
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    GreetingTheme {
-        Greeting()
     }
 }
