@@ -29,3 +29,8 @@ After applying text modifiers and styling, here is the updated appearance:
 
 The `Text` composable in the app was styled using various modifiers and styles to achieve the final appearance. This includes adjusting padding, setting background colors, changing font sizes, and applying different text styles such as linear gradient and specific colors.
 
+
+## Preview of Layouts
+Updated appearance of Greeting app with layouts:
+
+<img src="ss/ss_Layout.png" alt="Final Preview" width="220" height="420">
